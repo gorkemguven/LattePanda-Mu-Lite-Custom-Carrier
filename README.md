@@ -7,6 +7,8 @@
 
 ## 📖 Project Overview & Engineering Scope
 This repository hosts a **fully custom-engineered 4-layer PCB layout, physical routing, and mechanical integration** for the **LattePanda Mu Lite Carrier Board**. 
+<img width="740" height="877" alt="Latte_panda_mu_3D_bottom" src="https://github.com/user-attachments/assets/d9b8c679-20f7-45a9-81db-2db438f2e578" />
+<img width="747" height="882" alt="Latte_panda_mu_3D_top" src="https://github.com/user-attachments/assets/48a1c161-4558-4d6b-9b36-db3fa6e26b33" />
 
 While the core electrical connectivity references the open-source hierarchical schematic architecture provided by DFRobot for compatibility with the **LattePanda Mu Compute Module** (an x86 processor module featuring integrated RAM and eMMC), **100% of the physical board implementation, trace impedance/width calculations, component footprint verification, 3D mechanical alignment, and high-speed signal routing were executed from scratch by Görkem Güven.**
 
