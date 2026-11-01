@@ -1,12 +1,3 @@
-GitHub depona yüklediğin `Latte_panda_mu_3D_top.png` ve `Latte_panda_mu_3D_bottom.png` görsellerini de doğrudan içine gömen ve bu görseller üzerinden kartın fiziksel yerleşimini (topoloji, konnektör dizilimi, diferansiyel hatlar ve arka katman referans yüzeyleri) detaylıca analiz eden güncellenmiş `README.md` metnini aşağıda bulabilirsin.
-
-*(Not: Eğer bu metni başka bir yapay zekaya veya araca komut (prompt) olarak vermek için istediysen, en altta senin için hazır bir **Prompt** şablonu da ekledim.)*
-
-### 1. Doğrudan Kopyalayıp Yapıştırabileceğin Güncel `README.md` Dosyası
-
-Aşağıdaki bloğun sağ üstündeki kopyala butonuna basarak doğrudan GitHub'daki `README.md` dosyana yapıştırabilirsin:
-
-```markdown
 # 🐼 Custom LattePanda Mu Lite Carrier Board - Complete Hardware Implementation
 
 ![Designed in](https://img.shields.io/badge/EDA-KiCad_8.0-blue.svg?style=for-the-badge&logo=kicad)
@@ -112,59 +103,3 @@ The electrical design is organized into clean, modular hierarchical schematic sh
 ├── LattePandaMu_carrier_custom.kicad_pcb      # Custom 4-Layer PCB Layout File
 ├── *.kicad_sch                                # Main and sub-sheet hierarchical schematic files
 └── fp-lib-table & sym-lib-table               # Library mapping tables
-
-```
-
----
-
-## 🖼️ 4-Layer Copper Routing Breakdown
-
-| Layer 1 (Top Copper) | Layer 2 (Inner Plane 1) |
-| --- | --- |
-|  |  |
-| **Layer 3 (Inner Plane 2)** | **Layer 4 (Bottom Copper)** |
-|  |  |
-
----
-
-## ⚠️ Hardware Disclaimer
-
-**Please Read Carefully Before Manufacturing:**
-
-This project was developed as an intensive hardware engineering, high-speed PCB layout, and CAD implementation study. While the board passes all Design Rule Checks (DRC), impedance calculations, and mechanical verifications in KiCad, **it has not been physically fabricated or bench-tested yet.**
-
-The design files and Gerbers are provided **"AS IS"** without warranty of any kind. Anyone wishing to order PCBs from a fabrication house (e.g., JLCPCB, PCBWay) does so entirely at their own risk.
-
----
-
-## 📜 Attribution & Licensing
-
-* **Electrical Reference:** The base connectivity follows the open-source specifications of the [DFRobot LattePanda Mu Lite Carrier](https://github.com/LattePandaTeam/LattePanda-Mu).
-* **PCB Engineering, Calculations & Layout:** 100% custom designed, routed, and verified by **Görkem Güven**.
-
-This open-source hardware project is released under the **MIT License**. You are free to study, modify, and distribute the files provided that proper attribution is given to the author.
-
----
-
-## 👨‍💻 Author & Contact
-
-**Görkem Güven**
-
-*B.Sc. in Electrical and Electronics Engineering — Muğla Sıtkı Koçman University (GPA: 3.44 / 4.00)*
-
-Hardware Design Engineer focusing on Embedded Systems, Power Electronics (SMPS), and High-Speed Multi-Layer PCB Layout.
-
-* 🐙 **GitHub:** [@gorkemguven](https://github.com/gorkemguven)
-
-```
-
----
-
-### 2. Başka Bir Yerde Kullanmak İstersen Hazır "Prompt" Metni
-
-Eğer niyetin bu açıklamaları başka bir yapay zeka aracına yazdırmak için bir **Prompt (Komut)** almaksa, şu komutu kopyalayıp kullanabilirsin:
-
-> **Prompt:**  
-> "Elimde KiCad ile sıfırdan kendi çizdiğim 4 katmanlı 'LattePanda Mu Lite Custom Carrier Board' PCB projem için hazırladığım kapsamlı bir GitHub README metni var. Bu metnin mevcut detaylarını hiç kısaltmadan koru ve içine `Latte_panda_mu_3D_top.png` ile `Latte_panda_mu_3D_bottom.png`[cite: 11] adlı iki 3D PCB görselini tablo halinde ekle. Ardından bu iki görselde görünen teknik detayları analiz eden bir bölüm yaz: Üst görünümde (`3D_top.png`) sağ-ortadaki A1 LattePanda Mu soketi ve M2x5.5 SMT somunlarını, üstteki iki adet 30mm M.2 soketini, sol kenar boyunca dizilmiş olan çift katlı USB 3.0 (`GSB311131HR`/`48408-0003`), Gigabit RJ45 Magjack (`RB1-125B8G1A`), çift katlı USB 2.0, HDMI konnektörünü ve sol alttaki çift kanallı DC-DC buck regülatör güç katını (`L1`, `L2` bobinleri ve kapasitör grupları)[cite: 15]; alt görünümde (`3D_bottom.png`) ise kesintisiz GND bakır dolgusunu, A1 soketinden çıkan empedans kontrollü diferansiyel hatları ve THT konnektörlerin lehim ayaklarını[cite: 14] mühendislik diliyle İngilizce olarak açıkla. Tüm hesaplamaların ve PCB çiziminin %100 Görkem Güven'e ait olduğunu vurgula."
-
-```
