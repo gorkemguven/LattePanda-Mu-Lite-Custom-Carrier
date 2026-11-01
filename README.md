@@ -66,6 +66,12 @@ A board that only looks good in CAD is useless if it fails on the SMT assembly l
 * **Optical Fiducial Marker Clearance (`FID1`, `FID2`, `FID3`):** Resolved critical *"Front solder mask aperture bridges items with different nets"* errors. Because fiducial markers are un-netted copper pads (`<no net>`), the surrounding `GND` copper pours across `F.Cu` and inner layers were encroaching on the solder mask opening. Custom local copper clearance rules were applied to pull back the `GND` zone, ensuring high-contrast optical recognition for automated Pick-and-Place (SMT) vision systems.
 * **Mechanical Courtyard Overlaps (`A1` vs `H5`/`H6`):** Analyzed and validated the intentional courtyard intersections between the LattePanda Mu's overarching mechanical boundary (`A1`) and the structural SMT securing nuts (`H5`, `H6`).
 
+⚠️ Hardware Disclaimer
+Please Read Carefully Before Manufacturing:
+
+This project was developed as an intensive hardware engineering, high-speed PCB layout, and CAD implementation study. While the board passes all Design Rule Checks (DRC), impedance calculations, and mechanical verifications in KiCad, it has not been physically fabricated or bench-tested yet.
+
+The design files and Gerbers are provided "AS IS" without warranty of any kind. Anyone wishing to order PCBs from a fabrication house (e.g., JLCPCB, PCBWay) does so entirely at their own risk.
 ---
 
 ## 🧩 Modular Hierarchical Architecture
