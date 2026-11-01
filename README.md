@@ -23,20 +23,20 @@ Below are the 3D mechanical and copper-routed views generated directly from KiCa
 | ![3D Top View](Latte_panda_mu_3D_top.png) | ![3D Bottom View](Latte_panda_mu_3D_bottom.png) |
 
 ### 🔍 Top View Architectural Breakdown (`Latte_panda_mu_3D_top.png`)
-* **Compute Module Core (`A1` Socket & Mechanical Mounting):** Located in the central-right zone, the high-density dual-row SMD connector (`A1`) interfaces directly with the LattePanda Mu module. To the far right, two **M2x5.5 SMT nuts (`H5`, `H6`)** are aligned within the module's mechanical outline to securely anchor the x86 board without inducing mechanical stress on the SMD pins.
-* **Dual M.2 Expansion Slots (Top Center):** Two vertical 30mm M.2 sockets (`J15` and `J16`) are positioned at the upper edge with dedicated mounting standoffs, routed with length-matched differential pairs directly from the `A1` socket for high-speed NVMe/PCIe and wireless connectivity.
-* **Perimeter I/O Coastline (Left Edge):** All external user-facing connectors are cleanly aligned along the left board edge for seamless enclosure integration:
-  * **Top-Left (`J4`):** Dual-Stacked USB 3.0 Type-A receptacle (blue insert) backed by ultra-low capacitance ESD arrays (`U3`, `U5`).
-  * **Upper-Mid Left (`J6`):** Gigabit Ethernet RJ45 Magjack (`RB1-125B8G1A`) paired directly with the Ethernet controller IC (`U6`), crystal oscillator (`Y1`), and termination passives.
-  * **Mid-Left (`J5`):** Dual-Stacked USB 2.0 Type-A receptacle protected by 6V/1A polyfuses (`F2`, `F3`), bulk capacitance (`C30`), and a `D3V3XA4B10LP` TVS diode array (`U4`).
-  * **Lower-Mid Left (`J3`):** HDMI output port with dedicated level-shifting and inline ESD protection along the TMDS differential lanes.
-* **Power Delivery Network - PDN (Bottom-Left):** Features the primary power inputs (`J17`, `J18`) feeding two isolated high-efficiency DC-DC synchronous buck converter stages (`U15`/`L1` and `U16`/`L2`). Surrounded by high-current power inductors, Schottky diodes, and dense input/output capacitor banks (`C64`–`C83`) to guarantee low-ripple voltage rails under heavy x86 CPU loads.
-* **System Control, RTC & Headers (Top-Right & Bottom-Right):** Includes a coin-cell RTC battery holder (top-right), tactile power/reset buttons (`SW1`, `SW2` at top-left), PWM fan connector, and dual-row GPIO expansion headers along the bottom-right perimeter.
+- **Compute Module Core (`A1` Socket & Mechanical Mounting):** Located in the central-right zone, the high-density dual-row SMD connector (`A1`) interfaces directly with the LattePanda Mu module. To the far right, two **M2x5.5 SMT nuts (`H5`, `H6`)** are aligned within the module's mechanical outline to securely anchor the x86 board without inducing mechanical stress on the SMD pins.
+- **Dual M.2 Expansion Slots (Top Center):** Two vertical 30mm M.2 sockets (`J15` and `J16`) are positioned at the upper edge with dedicated mounting standoffs, routed with length-matched differential pairs directly from the `A1` socket for high-speed NVMe/PCIe and wireless connectivity.
+- **Perimeter I/O Coastline (Left Edge):** All external user-facing connectors are cleanly aligned along the left board edge for seamless enclosure integration:
+  - **Top-Left (`J4`):** Dual-Stacked USB 3.0 Type-A receptacle (blue insert) backed by ultra-low capacitance ESD arrays (`U3`, `U5`).
+  - **Upper-Mid Left (`J6`):** Gigabit Ethernet RJ45 Magjack (`RB1-125B8G1A`) paired directly with the Ethernet controller IC (`U6`), crystal oscillator (`Y1`), and termination passives.
+  - **Mid-Left (`J5`):** Dual-Stacked USB 2.0 Type-A receptacle protected by 6V/1A polyfuses (`F2`, `F3`), bulk capacitance (`C30`), and a `D3V3XA4B10LP` TVS diode array (`U4`).
+  - **Lower-Mid Left (`J3`):** HDMI output port with dedicated level-shifting and inline ESD protection along the TMDS differential lanes.
+- **Power Delivery Network - PDN (Bottom-Left):** Features the primary power inputs (`J17`, `J18`) feeding two isolated high-efficiency DC-DC synchronous buck converter stages (`U15`/`L1` and `U16`/`L2`). Surrounded by high-current power inductors, Schottky diodes, and dense input/output capacitor banks (`C64`–`C83`) to guarantee low-ripple voltage rails under heavy x86 CPU loads.
+- **System Control, RTC & Headers (Top-Right & Bottom-Right):** Includes a coin-cell RTC battery holder (top-right), tactile power/reset buttons (`SW1`, `SW2` at top-left), PWM fan connector, and dual-row GPIO expansion headers along the bottom-right perimeter.
 
 ### 🔍 Bottom View Architectural Breakdown (`Latte_panda_mu_3D_bottom.png`)
-* **Continuous Ground Reference Plane (`B.Cu`):** The bottom layer is predominantly flooded with a solid, low-impedance `GND` copper pour, stitched extensively with ground vias to provide clean return paths and EMI shielding for the high-speed signals routed on the top and inner layers.
-* **Impedance-Controlled Escape Routing:** Displays secondary differential pair breakouts and impedance-matched traces escaping from the central `A1` compute socket area toward the M.2 slots and peripheral headers, avoiding unnecessary layer transitions.
-* **Through-Hole Mechanical Anchoring & Isolation:** Clearly exhibits the staggered 18-pin THT footprint of the Dual USB 3.0 port, the 8-pin + shield tabs of the Dual USB 2.0 port, the RJ45 Magjack pin array, and the four corner mounting holes (`H1`–`H4`) with exposed ground-ring pads for chassis grounding.
+- **Continuous Ground Reference Plane (`B.Cu`):** The bottom layer is predominantly flooded with a solid, low-impedance `GND` copper pour, stitched extensively with ground vias to provide clean return paths and EMI shielding for the high-speed signals routed on the top and inner layers.
+- **Impedance-Controlled Escape Routing:** Displays secondary differential pair breakouts and impedance-matched traces escaping from the central `A1` compute socket area toward the M.2 slots and peripheral headers, avoiding unnecessary layer transitions.
+- **Through-Hole Mechanical Anchoring & Isolation:** Clearly exhibits the staggered 18-pin THT footprint of the Dual USB 3.0 port, the 8-pin + shield tabs of the Dual USB 2.0 port, the RJ45 Magjack pin array, and the four corner mounting holes (`H1`–`H4`) with exposed ground-ring pads for chassis grounding.
 
 ---
 
@@ -46,48 +46,26 @@ Throughout the development of this carrier board, several critical hardware engi
 
 ### 1. High-Speed Signal Integrity & 4-Layer Stackup Routing
 The LattePanda Mu module exposes high-speed interfaces including **PCIe Gen 3.0 (x4)**, **USB 3.0 (SuperSpeed 5Gbps)**, **USB 2.0**, **Gigabit Ethernet (MDI)**, and **HDMI/DisplayPort**.
-* **Differential Pair Routing:** All high-speed differential pairs (`USB3_TX/RX`, `USB2_D+/D-`, `PCIe`, `HDMI`, and `Ethernet`) were manually routed with strict length matching, phase tuning, and symmetrical geometry to prevent signal skew and electromagnetic interference (EMI).
-* **Reference Planes:** A dedicated 4-layer stackup was utilized to ensure continuous, unbroken Ground (`GND`) reference planes directly beneath high-speed traces, minimizing return path inductance and crosstalk.
+- **Differential Pair Routing:** All high-speed differential pairs (`USB3_TX/RX`, `USB2_D+/D-`, `PCIe`, `HDMI`, and `Ethernet`) were manually routed with strict length matching, phase tuning, and symmetrical geometry to prevent signal skew and electromagnetic interference (EMI).
+- **Reference Planes:** A dedicated 4-layer stackup was utilized to ensure continuous, unbroken Ground (`GND`) reference planes directly beneath high-speed traces, minimizing return path inductance and crosstalk.
 
 ### 2. Custom Footprint Verification & Multi-Source 3D CAD Integration
 Standard library footprints often fail to represent complex multi-port connectors accurately. A major phase of this project involved auditing pinouts, verifying mechanical datasheets, and integrating accurate 3D STEP models:
-* **LattePanda Mu A1 Compute Socket:** Configured the dense dual-row SMD connector (`A1`) alongside precise mechanical alignment for the module's **M2x5.5 SMT mounting nuts (`H5`, `H6`)**. Imported and manually calibrated the X-Y-Z offsets and rotation axes of the physical compute module's 3D CAD model to verify vertical and horizontal component clearances under the module.
-* **Dual-Stacked USB 3.0 Type-A (`J4` / 18-Pin):** Standard component search engines frequently misrepresent stacked connectors with single-port 3D models. Cross-referenced multiple industrial part numbers (including **Amphenol `GSB311131HR`**, **Molex `48408-0003`**, **TE `1932799-1`**, and **Würth `692212030100`**), verified the 18-pin dual-row staggered through-hole footprint + 4 mechanical shield tabs, and integrated a true dual-stacked STEP model.
-* **Dual-Stacked USB 2.0 Type-A (`J5`):** Verified the 8-pin dual-port power and data architecture (`VBUS1/2`, `D1+/D1-`, `D2+/D2-`) paired with dedicated polyfuse overcurrent protection (`F2`, `F3` - 6V/1A) and bulk decoupling (`22uF/10V`).
-* **Gigabit Ethernet Magjack (`RB1-125B8G1A`):** Sourced and aligned the UDE integrated transformer RJ45 connector with built-in status LEDs, ensuring proper isolation clearance between the chassis ground and digital ground.
+- **LattePanda Mu A1 Compute Socket:** Configured the dense dual-row SMD connector (`A1`) alongside precise mechanical alignment for the module's **M2x5.5 SMT mounting nuts (`H5`, `H6`)**. Imported and manually calibrated the X-Y-Z offsets and rotation axes of the physical compute module's 3D CAD model to verify vertical and horizontal component clearances under the module.
+- **Dual-Stacked USB 3.0 Type-A (`J4` / 18-Pin):** Standard component search engines frequently misrepresent stacked connectors with single-port 3D models. Cross-referenced multiple industrial part numbers (including **Amphenol `GSB311131HR`**, **Molex `48408-0003`**, **TE `1932799-1`**, and **Würth `692212030100`**), verified the 18-pin dual-row staggered through-hole footprint + 4 mechanical shield tabs, and integrated a true dual-stacked STEP model.
+- **Dual-Stacked USB 2.0 Type-A (`J5`):** Verified the 8-pin dual-port power and data architecture (`VBUS1/2`, `D1+/D1-`, `D2+/D2-`) paired with dedicated polyfuse overcurrent protection (`F2`, `F3` - 6V/1A) and bulk decoupling (`22uF/10V`).
+- **Gigabit Ethernet Magjack (`RB1-125B8G1A`):** Sourced and aligned the UDE integrated transformer RJ45 connector with built-in status LEDs, ensuring proper isolation clearance between the chassis ground and digital ground.
 
 ### 3. Electrostatic Discharge (ESD) & Power Protection Architecture
 External I/O ports are highly vulnerable to transient voltage spikes and human-body ESD events. To ensure industrial-grade reliability:
-* **Ultra-Low Capacitance TVS Arrays (`D3V3XA4B10LP`):** Placed directly adjacent to the USB connectors in a flow-through routing topology. This minimizes stub length and clamps transient voltages on `CON_USB1_D_P/N` and `CON_USB2_D_P/N` lines before they can reach the x86 compute module.
-* **Compact 0402 ESD Protection (`ESD5V0B03`):** Integrated 0402 metric package bidirectional TVS diodes across auxiliary I/O and control lines, optimizing board real estate without compromising protection.
+- **Ultra-Low Capacitance TVS Arrays (`D3V3XA4B10LP`):** Placed directly adjacent to the USB connectors in a flow-through routing topology. This minimizes stub length and clamps transient voltages on `CON_USB1_D_P/N` and `CON_USB2_D_P/N` lines before they can reach the x86 compute module.
+- **Compact 0402 ESD Protection (`ESD5V0B03`):** Integrated 0402 metric package bidirectional TVS diodes across auxiliary I/O and control lines, optimizing board real estate without compromising protection.
 
 ### 4. Design for Manufacturing (DFM) & Design Rule Check (DRC) Resolution
 A board that only looks good in CAD is useless if it fails on the SMT assembly line. Extensive DRC and DFM audits were conducted to make the board production-ready:
-* **Optical Fiducial Marker Clearance (`FID1`, `FID2`, `FID3`):** Resolved critical *"Front solder mask aperture bridges items with different nets"* errors. Because fiducial markers are un-netted copper pads (`<no net>`), the surrounding `GND` copper pours across `F.Cu` and inner layers were encroaching on the solder mask opening. Custom local copper clearance rules were applied to pull back the `GND` zone, ensuring high-contrast optical recognition for automated Pick-and-Place (SMT) vision systems.
-* **Mechanical Courtyard Overlaps (`A1` vs `H5`/`H6`):** Analyzed and validated the intentional courtyard intersections between the LattePanda Mu's overarching mechanical boundary (`A1`) and the structural SMT securing nuts (`H5`, `H6`).
+- **Optical Fiducial Marker Clearance (`FID1`, `FID2`, `FID3`):** Resolved critical *"Front solder mask aperture bridges items with different nets"* errors. Because fiducial markers are un-netted copper pads (`<no net>`), the surrounding `GND` copper pours across `F.Cu` and inner layers were encroaching on the solder mask opening. Custom local copper clearance rules were applied to pull back the `GND` zone, ensuring high-contrast optical recognition for automated Pick-and-Place (SMT) vision systems.
+- **Mechanical Courtyard Overlaps (`A1` vs `H5`/`H6`):** Analyzed and validated the intentional courtyard intersections between the LattePanda Mu's overarching mechanical boundary (`A1`) and the structural SMT securing nuts (`H5`, `H6`).
 
-⚠️ Hardware Disclaimer
-Please Read Carefully Before Manufacturing:
-
-This project was developed as an intensive hardware engineering, high-speed PCB layout, and CAD implementation study. While the board passes all Design Rule Checks (DRC), impedance calculations, and mechanical verifications in KiCad, it has not been physically fabricated or bench-tested yet.
-
-The design files and Gerbers are provided "AS IS" without warranty of any kind. Anyone wishing to order PCBs from a fabrication house (e.g., JLCPCB, PCBWay) does so entirely at their own risk.
-
-📜 Attribution & Licensing
-Electrical Reference: The base connectivity follows the open-source specifications of the DFRobot LattePanda Mu Lite Carrier.
-
-PCB Engineering, Calculations & Layout: 100% custom designed, routed, and verified by Görkem Güven.
-
-This open-source hardware project is released under the MIT License. You are free to study, modify, and distribute the files provided that proper attribution is given to the author.
-
-👨‍💻 Author & Contact
-Görkem Güven
-
-B.Sc. in Electrical and Electronics Engineering — Muğla Sıtkı Koçman University (GPA: 3.44 / 4.00)
-
-Hardware Design Engineer focusing on Embedded Systems, Power Electronics (SMPS), and High-Speed Multi-Layer PCB Layout.
-
-🐙 GitHub: @gorkemguven
 ---
 
 ## 🧩 Modular Hierarchical Architecture
@@ -125,3 +103,41 @@ The electrical design is organized into clean, modular hierarchical schematic sh
 ├── LattePandaMu_carrier_custom.kicad_pcb      # Custom 4-Layer PCB Layout File
 ├── *.kicad_sch                                # Main and sub-sheet hierarchical schematic files
 └── fp-lib-table & sym-lib-table               # Library mapping tables
+```
+
+---
+
+## 🖼️ 4-Layer Copper Routing Breakdown
+
+| Layer 1 (Top Copper - `F.Cu`) | Layer 2 (Inner Plane 1 - `In1.Cu`) |
+| :---: | :---: |
+| ![Layer 1](Latte_panda_mu_Footprint_Layer_1.png) | ![Layer 2](Latte_panda_mu_Footprint_Layer_2.png) |
+| **Layer 3 (Inner Plane 2 - `In2.Cu`)** | **Layer 4 (Bottom Copper - `B.Cu`)** |
+| ![Layer 3](Latte_panda_mu_Footprint_Layer_3.png) | ![Layer 4](Latte_panda_mu_Footprint_Layer_4.png) |
+
+---
+
+## ⚠️ Hardware Disclaimer
+
+> [!WARNING]
+> **Please Read Carefully Before Manufacturing:**  
+> This project was developed as an intensive hardware engineering, high-speed PCB layout, and CAD implementation study. While the board passes all Design Rule Checks (DRC), impedance calculations, and mechanical verifications in KiCad, **it has not been physically fabricated or bench-tested yet.**
+> 
+> The design files and Gerbers are provided **"AS IS"** without warranty of any kind. Anyone wishing to order PCBs from a fabrication house (e.g., JLCPCB, PCBWay) does so entirely at their own risk.
+
+---
+
+## 📜 Attribution & Licensing
+- **Electrical Reference:** The base connectivity follows the open-source specifications of the [DFRobot LattePanda Mu Lite Carrier](https://github.com/LattePandaTeam/LattePanda-Mu).
+- **PCB Engineering, Calculations & Layout:** 100% custom designed, routed, and verified by **Görkem Güven**.
+
+This open-source hardware project is released under the **MIT License**. You are free to study, modify, and distribute the files provided that proper attribution is given to the author.
+
+---
+
+## 👨‍💻 Author & Contact
+**Görkem Güven**  
+*B.Sc. in Electrical and Electronics Engineering — Muğla Sıtkı Koçman University (GPA: 3.44 / 4.00)*  
+
+Hardware Design Engineer focusing on Embedded Systems, Power Electronics (SMPS), and High-Speed Multi-Layer PCB Layout.  
+- 🐙 **GitHub:** [@gorkemguven](https://github.com/gorkemguven)
