@@ -72,6 +72,22 @@ Please Read Carefully Before Manufacturing:
 This project was developed as an intensive hardware engineering, high-speed PCB layout, and CAD implementation study. While the board passes all Design Rule Checks (DRC), impedance calculations, and mechanical verifications in KiCad, it has not been physically fabricated or bench-tested yet.
 
 The design files and Gerbers are provided "AS IS" without warranty of any kind. Anyone wishing to order PCBs from a fabrication house (e.g., JLCPCB, PCBWay) does so entirely at their own risk.
+
+📜 Attribution & Licensing
+Electrical Reference: The base connectivity follows the open-source specifications of the DFRobot LattePanda Mu Lite Carrier.
+
+PCB Engineering, Calculations & Layout: 100% custom designed, routed, and verified by Görkem Güven.
+
+This open-source hardware project is released under the MIT License. You are free to study, modify, and distribute the files provided that proper attribution is given to the author.
+
+👨‍💻 Author & Contact
+Görkem Güven
+
+B.Sc. in Electrical and Electronics Engineering — Muğla Sıtkı Koçman University (GPA: 3.44 / 4.00)
+
+Hardware Design Engineer focusing on Embedded Systems, Power Electronics (SMPS), and High-Speed Multi-Layer PCB Layout.
+
+🐙 GitHub: @gorkemguven
 ---
 
 ## 🧩 Modular Hierarchical Architecture
